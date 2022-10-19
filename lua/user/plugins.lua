@@ -66,6 +66,9 @@ return packer.startup(function(use)
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
 
+  use "LunarVim/Colorschemes"
+
+  use 'folke/tokyonight.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
