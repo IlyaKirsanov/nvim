@@ -41,9 +41,31 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
+
+
+
+
+
+  
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
+  use "rstacruz/vim-closer"
+  use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+
+  use {
+    'w0rp/ale',
+    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
+    cmd = 'ALEEnable',
+    config = 'vim.cmd[[ALEEnable]]'
+  }
+  -- Plugins can have post-install/update hooks
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+
+  -- Load on an autocommand event
+  use {'andymass/vim-matchup', event = 'VimEnter'}
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
